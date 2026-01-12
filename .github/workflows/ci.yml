@@ -43,7 +43,7 @@ jobs:
 
   # Job which runs pytest on multiple OS/Python versions, if lint-and-format succeeded
   pytest:
-    runs-on: ${{ os.matrix }}
+    runs-on: ${{ matrix.os }}
     needs: lint-and-format
     strategy:
       matrix:
