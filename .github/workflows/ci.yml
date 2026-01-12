@@ -44,7 +44,7 @@ jobs:
 
       # if ruff check or ruff format failed, the whole job should fail (but both should be checked)
       - name: Output job status
-        if: steps.ruff-check.outcome == "failure" || steps.ruff-format.outcome == "failure"
+        if: steps.ruff-check.outcome == 'failure' || steps.ruff-format.outcome == 'failure'
         run: | 
           echo "ruff check or ruff format --check failed"
           exit 1
