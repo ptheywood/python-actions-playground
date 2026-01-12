@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  # Run on pushes to main
+  push:
+    branches:
+      - main
+  # Run on pull requests
+  pull_request:
+  # Run when manually invoked
+  workflow_dispatch
+
+jobs:
+  # Job which lints and formats via ruff
+  lint-and-format:
+    runs-on: ubuntu-latest
+    python-version:
+      - "3.10"
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install ruff
+        run: |
+          python3 -m pip install ruff
+
+      - name: ruff check
+        run: |
+          python3 -m ruff check --output-format=github
+
+      - name: ruff format --check
+        run: |
+          python3 -m ruff format --check
