@@ -8,7 +8,7 @@ on:
   # Run on pull requests
   pull_request:
   # Run when manually invoked
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   # Job which lints and formats via ruff
