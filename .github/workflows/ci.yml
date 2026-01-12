@@ -46,7 +46,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     needs: lint-and-format
     strategy:
-      fail-fast: false
+      # Set to true to save CI minutes, or false for full matrix results in the case of any failures
+      fail-fast: true
       matrix:
         os:
           - ubuntu-latest
