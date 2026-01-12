@@ -14,9 +14,10 @@ jobs:
   # Job which lints and formats via ruff
   lint-and-format:
     runs-on: ubuntu-latest
-    matrix:
-      python-version:
-        - "3.10"
+    strategy:
+      matrix:
+        python-version:
+          - "3.10"
     steps:
       - uses: actions/checkout@v6
 
