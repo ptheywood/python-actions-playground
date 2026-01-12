@@ -31,7 +31,7 @@ jobs:
           python3 -m pip install ruff
 
       - name: ruff check
-        idf: ruff-check
+        id: ruff-check
         continue-on-error: true
         run: |
           python3 -m ruff check --output-format=github
