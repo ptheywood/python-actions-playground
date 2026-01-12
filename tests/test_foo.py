@@ -1,5 +1,6 @@
 # Must invoke via python3 -m pytest due to relative local import
 import pytest
+import sys
 from foo import foo
 
 
@@ -14,3 +15,7 @@ from foo import foo
 )
 def test_foo(v: int | str | None, expected: str):
     assert foo(v) == expected
+
+
+def test_python():
+    assert sys.version_info >= (3, 11)
